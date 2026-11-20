@@ -1,7 +1,5 @@
-def calcular_tarifa(horas):
-    tarifa_hora = 20.0
-    return horas * tarifa_hora
+def registrar_entrega(libro, usuario):
+    return f"El libro '{libro}' ha sido entregado exitosamente por {usuario}."
 
 if __name__ == "__main__":
-    horas_uso = 3
-    print(f"La tarifa por {horas_uso} horas es: ${calcular_tarifa(horas_uso)}")
+    print(registrar_entrega("Clean Architecture", "Milo"))
