@@ -1,0 +1,40 @@
+
+name: Main CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build y Pruebas
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Descargar el código del repositorio
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      # 2. Instalar Python en el runner
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 3. Instalar dependencias si existe requirements.txt
+      - name: Instalar dependencias
+        run: |
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            echo "Sin requirements.txt, usando librería estándar"
+          fi
+
+      # 4. Ejecutar tu archivo .py (cambia script.py por el nombre real de tu archivo)
+      - name: Ejecutar script de Python
+        run: python Hola_mundo.py
