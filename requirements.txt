@@ -1,0 +1,7 @@
+# Librerias base en python
+numpy == 1.26.4
+pandas == 2.2.2
+requests >= 2.31, <3.0.0
+
+#Herramientas de prueba
+pytest == 8.2.2
